@@ -1,2 +1,2 @@
 Laravel Project !!
-work smart , not hard
+work smart , not hard//
