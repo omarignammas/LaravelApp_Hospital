@@ -26,6 +26,7 @@
   <div class="back-to-top"></div>
 
   <header>
+   
     <div class="topbar">
       <div class="container">
         <div class="row">
@@ -47,7 +48,7 @@
         </div> <!-- .row -->
       </div> <!-- .container -->
     </div> <!-- .topbar -->
-
+    
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
       <div class="container">
         <a class="navbar-brand" href="#"><span class="text-primary">Clinic</span>-Ease</a>
@@ -86,7 +87,9 @@
             @if(Route::has('login'))
 
             @auth
-
+            <li class="nav-item">
+              <a class="nav-link" style="background-color: rgb(115, 228, 74);font-weight:bold;color:whitesmoke;border-radius:3px;hover;" href="{{url('myappointement')}}">My appointments</a>
+            </li>
             <x-app-layout>
             </x-app-layout>
 
@@ -108,7 +111,15 @@
       </div> <!-- .container -->
     </nav>
   </header>
+  @if(session()->has('message'))
 
+    <div class="alert alert-success">
+      
+      <button type="button" class="close" data-dismiss="alert"> x </button>
+      {{session()->get('message')}}
+
+    </div>
+    @endif
   <div class="page-hero bg-image overlay-dark" style="background-image: url(../assets/img/bg_image_1.jpg);">
     <div class="hero-section">
       <div class="container text-center wow zoomIn">

@@ -16,6 +16,8 @@ Route::post('/upload_doctor', [AdminController::class,'upload']);
 
 Route::post('/appointement', [HomeController::class,'appointement']);
 
+Route::get('/myappointement', [HomeController::class,'myappointement']);
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
