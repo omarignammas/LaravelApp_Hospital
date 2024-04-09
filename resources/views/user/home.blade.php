@@ -8,7 +8,7 @@
 
   <meta name="copyright" content="MACode ID, https://macodeid.com/">
 
-  <title>One Health - Medical Center HTML5 Template</title>
+  <title>ClinicEase - Medical Center </title>
 
   <link rel="stylesheet" href="../assets/css/maicons.css">
 
@@ -50,7 +50,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm">
       <div class="container">
-        <a class="navbar-brand" href="#"><span class="text-primary">One</span>-Health</a>
+        <a class="navbar-brand" href="#"><span class="text-primary">Clinic</span>-Ease</a>
 
         <form action="#">
           <div class="input-group input-navbar">
@@ -173,7 +173,7 @@
  
 @include('user.latest')
 
- @include('user.appointement')
+@include('user.appointement')
 
   <footer class="page-footer">
     <div class="container">

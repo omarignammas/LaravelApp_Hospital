@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-use App\Models\doctor;
+use App\Models\Doctor;
+use App\Models\Appointement;
 
 class HomeController extends Controller
 {
@@ -36,11 +37,42 @@ class HomeController extends Controller
 
                 return view('admin.home');
             }
-        }else
+        }
+        else
         {
             return redirect()->back();
         }
         
+    }
+    public function appointement(Request $request){
+
+            $data=new appointement;
+
+            $data->name=$request->name;
+
+            $data->email=$request->email;
+
+            $data->date=$request->date;
+
+            $data->phone=$request->phone;
+
+            $data->doctor=$request->doctor;
+
+            $data->message=$request->message;
+
+            $data->status='In Progress';
+
+            if(Auth::id()){
+
+            $data->user_id=Auth::user()->id;
+
+            }
+
+            $data->save();
+
+          
+          return redirect()->back();
+          
     }
 
 }

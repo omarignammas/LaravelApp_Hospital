@@ -14,6 +14,7 @@ Route::get('/add_doctor_view', [AdminController::class,'addview']);
 
 Route::post('/upload_doctor', [AdminController::class,'upload']);
 
+Route::post('/appointement', [HomeController::class,'appointement']);
 
 Route::middleware([
     'auth:sanctum',
