@@ -6,7 +6,7 @@
         @csrf
         <div class="row mt-5 ">
           <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
-            <input type="text" name="name" class="form-control" placeholder="Full name">
+            <input type="text" name="name" class="form-control"  placeholder="Full name">
           </div>
           <div class="col-12 col-sm-6 py-2 wow fadeInRight">
             <input type="text" name="email" class="form-control" placeholder="Email address..">

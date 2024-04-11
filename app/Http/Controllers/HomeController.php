@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Doctor;
 use App\Models\Appointement;
+use App\Http\Middleware;
 
 class HomeController extends Controller
 {
@@ -25,7 +26,6 @@ class HomeController extends Controller
    
 
     }
-
     public function redirect(){
         if(Auth::id()){
             if(Auth::user()->usertype=='0'){
@@ -46,6 +46,12 @@ class HomeController extends Controller
     }
     public function appointement(Request $request){
 
+        if (!Auth::check()) {
+
+            return redirect()->back()->with('message2', 'Appointment Request Failed. Login with your account first!');
+        }
+        else{
+  
             $data=new appointement;
 
             $data->name=$request->name;
@@ -62,17 +68,16 @@ class HomeController extends Controller
 
             $data->status='In Progress';
 
-            if(Auth::id()){
-
+        
             $data->user_id=Auth::user()->id;
-
-            }
 
             $data->save();
 
-          
-          return redirect()->back()->with('message','Appointment Request Succesful . We will contact with you soon');;
-          
+                return redirect()->back()->with('message1','Appointment Request Succesful . We will contact with you soon');
+
+            
+        }
+     
     }
     public function myappointement(){
         if(Auth::id()){

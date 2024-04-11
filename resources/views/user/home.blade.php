@@ -111,15 +111,25 @@
       </div> <!-- .container -->
     </nav>
   </header>
-  @if(session()->has('message'))
+  @if(session()->has('message1'))
 
     <div class="alert alert-success">
       
       <button type="button" class="close" data-dismiss="alert"> x </button>
-      {{session()->get('message')}}
+      {{session()->get('message1')}}
 
     </div>
-    @endif
+
+  @elseif (session()->has('message2'))
+
+    <div class="alert alert-danger">
+      
+      <button type="button" class="close" data-dismiss="alert"> x </button>
+      {{session()->get('message2')}}
+
+    </div>
+    
+  @endif
   <div class="page-hero bg-image overlay-dark" style="background-image: url(../assets/img/bg_image_1.jpg);">
     <div class="hero-section">
       <div class="container text-center wow zoomIn">
