@@ -68,8 +68,8 @@
 
         <div class="collapse navbar-collapse" id="navbarSupport">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home</a>
+            <li class="nav-item">
+              <a class="nav-link" href="{{url('home')}}">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="about.html">About Us</a>
@@ -111,6 +111,15 @@
       </div> <!-- .container -->
     </nav>
   </header>
+  @if(session()->has('message3'))
+
+    <div class="alert alert-danger">
+      
+      <button type="button" class="close" data-dismiss="alert"> x </button>
+      {{session()->get('message3')}}
+
+    </div>
+  @endif
   <body>
     <table class="table table-striped" style="aligne-items:center;" border="1">
             <tr class="text-center">
@@ -127,8 +136,8 @@
                 <td>{{$appoints->date}}</td>
                 <td>{{$appoints->message}}</td>
                 <td>{{$appoints->status}}</td>
-                <td><button name="update" class="btn btn-success">Update</button>
-                <button name="delete" class="btn btn-danger">Delete</button></td>
+                <td><a name="update" class="btn btn-success" style="color: white;" >Update</a>
+                <a name="delete" class="btn btn-danger" href="{{url('delete_appoint',$appoints->id)}}">Delete</a></td>
             </tr>
             @endforeach
             

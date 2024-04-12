@@ -69,7 +69,7 @@
         <div class="collapse navbar-collapse" id="navbarSupport">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link" href="{{url('home')}}">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="about.html">About Us</a>
@@ -87,7 +87,7 @@
             @if(Route::has('login'))
 
             @auth
-            <li class="nav-item">
+            <li class="nav-item active">
               <a class="nav-link" style="background-color: rgb(115, 228, 74);font-weight:bold;color:whitesmoke;border-radius:3px;hover;" href="{{url('myappointement')}}">My appointments</a>
             </li>
             <x-app-layout>
@@ -135,7 +135,7 @@
       <div class="container text-center wow zoomIn">
         <span class="subhead">Let's make your life happier</span>
         <h1 class="display-4">Healthy Living</h1>
-        <a href="#" class="btn btn-primary">Let's Consult</a>
+        <a href="#appoint" class="btn btn-primary">Let's Consult</a>
       </div>
     </div>
   </div>
@@ -194,7 +194,7 @@
  
 @include('user.latest')
 
-@include('user.appointement')
+<div id="appoint"> @include('user.appointement')</div>
 
   <footer class="page-footer">
     <div class="container">
@@ -244,7 +244,7 @@
 
       <hr>
 
-      <p id="copyright">Copyright &copy; 2020 <a href="https://macodeid.com/" target="_blank">MACode ID</a>. All right reserved</p>
+      <p id="copyright">Copyright &copy; 2024 <a href="https://macodeid.com/" target="_blank">IGNA</a>. All right reserved</p>
     </div>
   </footer>
 

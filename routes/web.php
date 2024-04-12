@@ -18,6 +18,8 @@ Route::post('/appointement', [HomeController::class,'appointement']);
 
 Route::get('/myappointement', [HomeController::class,'myappointement']);
 
+Route::get('/delete_appoint/{id}', [HomeController::class,'deleteapp']);
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

@@ -94,4 +94,12 @@ class HomeController extends Controller
 
     }
 
+    public function deleteapp($id){
+
+        $data=appointement::find($id);
+        $data->delete();
+
+        return redirect()->back()->with('message3','Appointement was deleted successfully');
+    }
+
 }

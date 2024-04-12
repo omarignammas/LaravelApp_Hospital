@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
-            <x-authentication-card-logo />
+            <a class="navbar-brand text-xl"><span class="text-primary " style="color: rgb(96, 200, 96);font-weight:bolder;">Clinic</span>-Ease</a>
         </x-slot>
 
         <x-validation-errors class="mb-4" />
@@ -32,14 +32,14 @@
                 </label>
             </div>
 
-            <div class="flex items-center justify-end mt-4">
+            <div class="flex items-center justify-end mt-4" >
                 @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
+                    <a class="underline text-sm text-green-600 hover:text-green rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}" >
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
 
-                <x-button class="ml-4">
+                <x-button class="ml-4" style="background-color:#00d25b">
                     {{ __('Log in') }}
                 </x-button>
             </div>
