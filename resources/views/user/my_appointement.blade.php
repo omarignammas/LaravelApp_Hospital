@@ -113,18 +113,22 @@
   </header>
   <body>
     <table class="table table-striped" style="aligne-items:center;" border="1">
-            <tr>
+            <tr class="text-center">
                 <th>Doctor</th>
                 <th>Date</th>
                 <th>Message</th>
                 <th>Status</th>
+                <th>Action</th>
+                
             </tr>
             @foreach ($appoint as $appoints)
-            <tr>
+            <tr class="text-center">
                 <td>{{$appoints->doctor}}</td>
                 <td>{{$appoints->date}}</td>
                 <td>{{$appoints->message}}</td>
                 <td>{{$appoints->status}}</td>
+                <td><button name="update" class="btn btn-success">Update</button>
+                <button name="delete" class="btn btn-danger">Delete</button></td>
             </tr>
             @endforeach
             
