@@ -9,13 +9,12 @@
 
   .form-check-label {
     display: block;
-    padding-left: 0.625rem;
+    margin-left: 1.75rem;
     font-size: $default-font-size;
     line-height: 1.5;
-    color: $text-muted;
     .rtl & {
-      padding-left: 0;
-      padding-right: 1.875rem;
+      margin-left: 0;
+      margin-right: 1.75rem;
     }
 
     input {
@@ -47,19 +46,15 @@
         }
         &:before {
           content: "";
-          width: 16px;
-          height: 16px;
+          width: 18px;
+          height: 18px;
           border-radius: 2px;
-          border: solid theme-color(primary);
+          border: solid $primary;
           border-width: 2px;
           @include transition(all);
           transition-duration: 0s;
           -webkit-transition-duration: 250ms;
           transition-duration: 250ms;
-          position: absolute;
-          top: 2px;
-          left: 0;
-
         }
   
         &:after {
@@ -75,16 +70,15 @@
           -o-transform: scale(0);
           transform: scale(0);
           content: '\F12C';
-          font-size: 0.875rem;
+          font-size: .9375rem;
           font-weight: bold;
           color: $white;
-          top: 1px;
         }
       }
       &:checked {
         +.input-helper {
           &:before {
-            background: theme-color(primary);
+            background: theme-gradient-color(primary);
             border-width: 0;
           }
           &:after {
@@ -96,7 +90,6 @@
             -ms-transform: scale(1);
             -o-transform: scale(1);
             transform: scale(1);
-            color: black;
           }
         }
       }
@@ -129,7 +122,7 @@
             left: auto;
             right: 0;
           }
-          border: solid theme-color(primary);
+          border: solid $primary;
           border-width: 2px;
           width: 20px;
           height: 20px;
@@ -171,7 +164,7 @@
       &:checked {
         +.input-helper {
           &:before {
-            background: theme-color(primary);
+            background: theme-gradient-color(primary);
             border-width: 0;
           }
 
@@ -210,7 +203,7 @@
   }
 }
 
-@each $color, $value in $theme-colors {
+@each $color, $value in $theme-gradient-colors {
   .form-check-#{$color} {
     &.form-check {
       label {
@@ -234,25 +227,8 @@
   }
 }
 
-.form-check-muted {
-  &.form-check {
-    label {
-      input[type="checkbox"],
-      input[type="radio"] {
-        +.input-helper {
-          &:before {
-            border-color: $text-muted;
-          }
-        }
-        &:checked {
-          +.input-helper {
-            &:before {
-              background: $text-muted;
-            }
-          }
-        }
-      }
-    }
+@media (min-width: 576px) {
+  .form-inline .form-check {
+
   }
 }
-

@@ -3,9 +3,9 @@
 .btn {
   font-size: $btn-font-size;
   line-height: 1;
-  font-weight: normal;
+  font-family: $type1-bold;
   i {
-    margin-right: .3125rem;
+    font-size: 1rem;
   }
   &.btn-rounded {
     @include border-radius(50px);
@@ -43,16 +43,6 @@
     height: 50px;
     padding: 0;
   }
-  &.get-started-btn {
-    font-size: 0.75rem;
-    border: 1px solid rgba(#ffffff, 0.3);
-    font-weight: $font-weight-medium;
-    padding: 0.9375rem 1.0625rem;
-    @media (max-width: 576px) {
-      font-size: 0.6rem;
-      padding: 0.4375rem 0.6625rem;
-    }
-  }
 }
 
 .btn-group {
@@ -66,7 +56,7 @@
 .btn-toolbar {
   .btn-group {
     +.btn-group {
-      @extend .ml-2;
+      @extend .ms-2;
     }
   }
 }
@@ -84,19 +74,31 @@
   .btn-inverse-#{$color} {
     @include button-inverse-variant($value);
   }
-  .btn-#{$color} {
-    &:not(.btn-light):not(.btn-secondary) {
+  .btn-#{$color}:not(.btn-light) {
+    color: $white;
+    &:hover,
+    &:focus,
+    &:active {
       color: $white;
-      &:hover,
-      &:focus,
-      &:active {
-        color: $white;
-      }
-      &:focus,
-      &:active {
-        background: $value;
-        border-color: $value;
-      }
     }
+    &:focus,
+    &:active {
+      background: $value;
+      border-color: $value;
+    }
+  }
+  .btn-outline-#{$color} {
+    &:hover,
+    &:focus,
+    &:active {
+      background: theme-gradient-color($color);
+      color: $black;
+    }
+  }
+}
+/* gradient buttons */
+@each $color, $value in $theme-gradient-colors {
+  .btn-gradient-#{$color} {
+    @include button-gradient-variant($value);
   }
 }

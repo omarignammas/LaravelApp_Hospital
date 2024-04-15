@@ -5,10 +5,13 @@
     @include display-flex;
     @include flex-direction(row);
     @include align-items(flex-start);
-    padding: 1rem 0rem;
+    padding: .75rem 1.5rem;
     font-size: .875rem;
     &:last-child {
       border-bottom: 0;
+    }
+    &:hover {
+      background: $dropdown-link-hover-bg;
     }
     .form-check {
       margin-top: 8px;
@@ -19,8 +22,12 @@
       position: relative;
       img,
       .preview-icon {
-        width: 40px;
-        height: 40px;
+        width: 36px;
+        height: 36px;
+        border-radius: 100%;
+      }
+      .preview-icon {
+        padding: 6px;
         text-align: center;
         @include display-flex;
         @include align-items(center);
@@ -29,7 +36,7 @@
           font-size: 1.125rem;
           margin: 0;
           .rtl & {
-            @extend .ml-0;
+            @extend .ms-0;
           }
         }
       }
@@ -62,7 +69,6 @@
       }
       p {
         margin-bottom: 10px;
-        line-height: 1;
         .content-category {
           font-family: 'source-sans-pro-semibold', sans-serif;
           padding-right: 15px;
@@ -114,27 +120,3 @@
     }
   }
 }
-
-
-
-@each $color, $value in $theme-colors {
-  .icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    &.icon-box-#{$color} {
-      width: 40px;
-      height: 37px;
-      background: rgba($value, 0.11);
-      border-radius: 7px;
-      color: $value;
-    }
-    .icon-item {
-      font-size: 20px;
-    }
-  }
-}
-
-
-
-

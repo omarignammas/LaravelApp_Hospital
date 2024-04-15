@@ -2,16 +2,13 @@
 
 .table {
   margin-bottom: 0;
-  color: $text-muted;
-  
 
   thead {
     th {
       border-top: 0;
       border-bottom-width: 1px;
-      font-weight: $font-weight-medium;
-      color: $text-muted; 
-      
+      font-family: $type1-medium;
+      font-weight: initial;
 
       i {
         margin-left: 0.325rem;
@@ -25,10 +22,11 @@
     font-size: $default-font-size;
     line-height: 1;
     white-space: nowrap;
+    padding: $table-cell-padding;
 
     img {
-      width: 30px;
-      height: 30px;
+      width: 36px;
+      height: 36px;
       border-radius: 100%;
     }
 
@@ -46,10 +44,10 @@
       border: none;
     }
   }
-  .table-dark {
-    background: $table-dark-bg;
-  }
-  &.table-contextual {
-    color: #ffffff;
-  }
+}
+.table > :not(:last-child) > :last-child > *, .jsgrid .jsgrid-table > :not(:last-child) > :last-child > * {
+  border-bottom-color: $border-color;
+}
+.table > :not(:first-child), .jsgrid .jsgrid-table > :not(:first-child) {
+  border-top: none;
 }

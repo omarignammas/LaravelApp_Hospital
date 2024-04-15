@@ -20,12 +20,11 @@
     <!-- partial -->
      <div class="container-fluid page-body-wrapper">
        
-
-        <div class="container" style="padding-top:50px;padding-left:250px;">
+        <div class="container" >
 
             @if (session()->has('message'))
-            <div class="alert alert-success" style="width:520px;">
-            <button type="button"  class="close" data-dismiss="alert">x</button>
+            <div class="alert alert-success">
+            <button type="button"  class="close" data-dismiss="alert"> x </button>
  
             {{session()->get('message')}}
          
@@ -34,32 +33,56 @@
              
             @endif
 
-       <form action="{{url('upload_doctor')}}" method="POST" enctype="multipart/form-data">
-        @csrf
-        <label for="name" style="margin-top: 15px;">Doctor Name</label><br>
-        <input type="text" name="name" style="color: black;width:520px;" required placeholder="Enter name doctor"><br>
 
-        <label for="phone" style="margin-top: 15px;">Phone number</label><br>
-        <input type="number" name="phone" style="color: black;width:520px;" required placeholder="Enter phone"><br>
 
-        <label for="speciality" style="margin-top: 15px;">Speciality</label><br>
-        <select name="speciality" style="color: black;width:520px;">
-            <option>--Select--</option>
-            <option value="skin">skin</option>
-            <option value="heart">heart</option>
-            <option value="eye">eye</option>
-            <option value="nose">nose</option>
-        </select><br>
-
-        <label for="room" style="margin-top: 15px;">Room Number</label><br>
-        <input type="number" name="room" style="color: black;width:520px;" required placeholder="Enter room number"><br>
-
-        <label for="image" style="margin-top: 15px;width:520px;">Doctor Image</label><br>
-        <input type="file" name="file"><br>
-
-        <input type="submit" class="btn btn-primary mt-3 col-md-8" value="ajouter">
-
-       </form>
+            <form class="forms-sample" action="{{url('upload_doctor')}}" method="POST" enctype="multipart/form-data">
+              @csrf
+              <div class="form-group">
+                <label for="name">Doctor Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Doctor Name">
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone number</label>
+                <input type="number" class="form-control" id="phone" name="phone" placeholder="phone number">
+              </div>
+              
+              <div class="form-group">
+                <label for="Speciality">Speciality</label>
+                <select class="form-control" id="Speciality"name="speciality" > 
+                  <option>--Select--</option>
+                  <option value="skin">skin</option>
+                  <option value="heart">heart</option>
+                  <option value="eye">eye</option>
+                  <option value="nose">nose</option>
+                </select><br>
+              <div class="form-group">
+                <div class="form-group">
+                  <label>Doctor Image</label>
+                  <input type="file" name="file" class="file-upload-default" onchange="updateFileName(this)">
+                  <div class="input-group col-xs-12">
+                      <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                      <span class="input-group-append">
+                          <button class="file-upload-browse btn" style="background-color: rgb(124, 228, 124);color:azure" type="button" onclick="document.querySelector('input[name=file]').click()">Upload</button>
+                      </span>
+                  </div>
+              </div>
+              
+              <script>
+                  function updateFileName(input) {
+                      var fileName = input.files[0].name;
+                      var fileInfoInput = input.parentElement.querySelector('.file-upload-info');
+                      fileInfoInput.value = fileName;
+                  }
+              </script>
+              
+                 
+              <div class="form-group">
+                <label for="room">Room Number</label>
+                <input type="text" class="form-control" id="room" name="room" placeholder="Room number">
+              </div>
+              <button class="btn btn-gradient-success me-2">Submit</button>
+              <button class="btn btn-danger">Cancel</button>
+            </form>
 
         </div>
         

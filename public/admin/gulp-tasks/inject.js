@@ -9,15 +9,16 @@ var merge = require('merge-stream');
 
 
 
-
 /* inject partials like sidebar and navbar */
 gulp.task('injectPartial', function () {
-    return gulp.src(["./pages/*/*.html", "./index.html"], {
-            base: "./"
-        })
-        .pipe(injectPartials())
-        .pipe(gulp.dest("."));
-});
+    var injPartial1 =  gulp.src("./pages/**/*.html", { base: "./" })
+      .pipe(injectPartials())
+      .pipe(gulp.dest("."));
+    var injPartial2 =  gulp.src("./*.html", { base: "./" })
+      .pipe(injectPartials())
+      .pipe(gulp.dest("."));
+    return merge(injPartial1, injPartial2);
+  });
 
 
 
@@ -35,11 +36,10 @@ gulp.task('injectAssets', function () {
             relative: true
         }))
         .pipe(inject(gulp.src([
+            // './assets/css/shared/style.css',
             './assets/js/off-canvas.js',
             './assets/js/hoverable-collapse.js',
             './assets/js/misc.js',
-            './assets/js/settings.js',
-            './assets/js/todolist.js'
         ], {
             read: false
         }), {
@@ -52,18 +52,17 @@ gulp.task('injectAssets', function () {
 
 /*replace image path and linking after injection*/
 gulp.task('replacePath', function () {
-    var replacePath1 = gulp.src('./pages/**/*.html', {
+    var replacePath1 = gulp.src('pages/**/*.html', {
             base: "./"
         })
         .pipe(replace('src="assets/images/', 'src="../../assets/images/'))
         .pipe(replace('href="pages/', 'href="../../pages/'))
-        .pipe(replace('href="documentation"', 'href="http://www.bootstrapdash.com/demo/corona-free/jquery/documentation/documentation.html"'))
         .pipe(replace('href="index.html"', 'href="../../index.html"'))
         .pipe(gulp.dest('.'));
     var replacePath2 = gulp.src('./**/index.html', {
             base: "./"
         })
-        .pipe(replace('href="documentation"', 'href="http://www.bootstrapdash.com/demo/corona-free/jquery/documentation/documentation.html"'))
+        .pipe(replace('src="assets/images/', 'src="assets/images/'))
         .pipe(gulp.dest('.'));
     return merge(replacePath1, replacePath2);
 });

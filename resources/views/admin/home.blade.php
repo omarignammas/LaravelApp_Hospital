@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -20,5 +19,6 @@
     @include('admin.body') 
     <!-- container-scroller -->
     @include('admin.script')
+    </div>
   </body>
 </html>

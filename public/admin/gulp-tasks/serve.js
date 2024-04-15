@@ -23,11 +23,11 @@ gulp.task('sass', function () {
             }
         }))
         .pipe(sass())
-        // .pipe(autoprefixer({
-        //     overrideBrowserslist: ['last 2 versions'],
-        //     cascade: false
-        // }))
-        .pipe(sourcemaps.write('./maps'))
+        .pipe(autoprefixer({
+            overrideBrowserslist: ['last 2 versions'],
+            cascade: false
+        }))
+        .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('./assets/css'))
         .pipe(browserSync.stream());
 });
