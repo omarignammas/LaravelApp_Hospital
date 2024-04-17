@@ -19,7 +19,8 @@ Route::post('/appointement', [HomeController::class,'appointement']);
 Route::get('/myappointement', [HomeController::class,'myappointement']);
 
 Route::get('/delete_appoint/{id}', [HomeController::class,'deleteapp']);
-
+ 
+Route::get('/showappointements', [AdminController::class,'show_appointement']);
 
 Route::middleware([
     'auth:sanctum',
