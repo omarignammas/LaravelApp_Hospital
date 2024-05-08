@@ -47,9 +47,9 @@
                                         <td>{{$item->doctor}}</td>
                                         <td>{{$item->date}}</td>
                                         <td>{{$item->message}}</td>
-                                        <td class="badge badge-gradient-warning mt-4 p-2" >{{$item->status}}</td>
+                                        <td class="badge {{$item->status === 'In Progress' ? 'badge-gradient-warning' : ($item->status === 'Approved' ? 'badge-gradient-success' : 'badge-gradient-danger')}} mt-4 p-2">{{$item->status}}</td>
                                         <td><a href="{{url('approved',$item->id)}}" class="btn btn-success">Approve</a></td>
-                                        <td><a href="" class="btn btn-danger">Cancel</a></td>
+                                        <td><a href="{{url('canceled',$item->id)}}" class="btn btn-danger">Cancel</a></td>
                                     </tr>
                                 @endforeach
                                 </tbody>

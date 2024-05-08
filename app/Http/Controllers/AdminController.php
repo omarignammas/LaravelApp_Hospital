@@ -43,4 +43,26 @@ class AdminController extends Controller
         
         return view('admin.showappointements',compact('data'));
     }
+    public function approved($id){
+        $data = Appointement :: find($id);
+
+        $data-> status = 'Approved';
+
+        $data->save();
+
+        return redirect()->back();
+
+
+    }
+    public function canceled($id){
+        $data = Appointement :: find($id);
+        
+        $data-> status = 'Canceled';
+
+        $data->save();
+
+        return redirect()->back();
+
+
+    }
 }
