@@ -22,6 +22,9 @@ Route::get('/delete_appoint/{id}', [HomeController::class,'deleteapp']);
  
 Route::get('/showappointements', [AdminController::class,'show_appointement']);
 
+ 
+Route::get('/approved/{id}', [AdminController::class,'approved']);
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
