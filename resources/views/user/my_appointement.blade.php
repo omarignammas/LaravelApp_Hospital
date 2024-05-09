@@ -135,7 +135,7 @@
                 <td>{{$appoints->doctor}}</td>
                 <td>{{$appoints->date}}</td>
                 <td>{{$appoints->message}}</td>
-                <td>{{$appoints->status}}</td>
+                <td class="font-weight-bold {{$appoints->status === 'In Progress' ? 'text-warning' : ($appoints->status === 'Approved' ? 'text-success' : 'text-danger')}} mt-3 p-1">{{$appoints->status}}</td>
                 <td><a name="update" class="btn btn-success" style="color: white;" >Update</a>
                 <a name="delete" class="btn btn-danger" href="{{url('delete_appoint',$appoints->id)}}">Delete</a></td>
             </tr>

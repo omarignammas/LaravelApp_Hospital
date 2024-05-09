@@ -43,6 +43,12 @@ class AdminController extends Controller
         
         return view('admin.showappointements',compact('data'));
     }
+    public function show_doctors(){
+
+        $data = Doctor::all();
+        
+        return view('admin.doctors',compact('data'));
+    }
     public function approved($id){
         $data = Appointement :: find($id);
 

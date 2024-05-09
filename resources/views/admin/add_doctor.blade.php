@@ -18,7 +18,7 @@
     @include('admin.navbar')
 
     <!-- partial -->
-     <div class="container-fluid page-body-wrapper">
+     <div class="container-fluid page-body-wrapper mt-4">
        
         <div class="container" >
 
